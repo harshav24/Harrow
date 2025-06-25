@@ -1,0 +1,351 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  width: 100%;
+  height: 100vh;
+  overflow: hidden;
+}
+
+@font-face {
+  font-family: "adineue-bold";
+  src: url(./Fonts/adineueprocyr_boldweb.ttf);
+}
+
+.parent_container {
+  width: 100%;
+  height: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  overflow: hidden;
+  background: url(./images/bg_6.jpg) no-repeat;
+  background-size: cover;
+  background-position: 0px -2px;
+}
+
+.cage {
+  position: relative;
+  width: 805px;
+  height: 480px;
+  padding: 30px 30px 50px 30px;
+  transition: all cubic-bezier(0.165, 0.84, 0.44, 1) 600ms 400ms;
+  background-color: rgb(53 60 54 / 62%);
+  z-index: 9;
+}
+
+.cage::before {
+  position: absolute;
+  content: "";
+  top: -60px;
+  width: 100%;
+  height: 60px;
+  border: 1px solid black;
+  left: 0;
+  transform: scaleX(1.08);
+  border-radius: 51px;
+  background-color: rgb(53 60 54 / 62%);
+  transition: all linear 100ms;
+}
+
+.cage.cage_remove::before,
+.cage.cage_remove::after {
+  opacity: 0;
+}
+
+.cage::after {
+  position: absolute;
+  content: "";
+  top: 100%;
+  width: 100%;
+  height: 60px;
+  border: 1px solid black;
+  left: 0;
+  transform: scaleX(1.08);
+  border-radius: 51px;
+  background-color: rgb(53 60 54 / 62%);
+}
+
+.cage.cage_up {
+  transform: translate3d(0, -800px, 0);
+}
+
+.cage_outer {
+  position: relative;
+  width: 100%;
+  height: 100%;
+  border: 1px solid transparent;
+}
+
+.bird {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 40px;
+  height: 40px;
+  transition: all ease-in-out 100ms;
+}
+
+.bird_side {
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  transform: scale(3.5, 3.5);
+}
+
+.bird_side.turn {
+  transform: scale(-3.5, 3.5);
+}
+
+.cage_line {
+  position: absolute;
+  top: 0;
+  height: 100%;
+  width: 0.5px;
+  background-color: black;
+  transition: all linear 300ms;
+  transition-delay: 500ms;
+}
+
+.cage_line_hor:first {
+  display: none;
+}
+
+.cage_line_hor {
+  position: absolute;
+  width: 100%;
+  height: 1px;
+  background-color: black;
+  left: 0;
+  transition: all linear 300ms;
+  transition-delay: 250ms;
+}
+
+.cage.cage_remove .cage_line {
+  height: 0px;
+}
+
+.cage.cage_remove {
+  background-color: transparent;
+}
+
+.cage.cage_remove .cage_line_hor {
+  width: 0px;
+}
+
+.key {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 50px;
+  height: 50px;
+  z-index: 9;
+}
+#cage_key {
+  transform: scale(1.5);
+}
+.lock_container {
+  position: absolute;
+  top: 0px;
+  right: 0px;
+  height: 150px;
+  width: 240px;
+  background-color: white;
+  background: url(./images/board.webp) no-repeat;
+  background-size: 85%;
+  background-position: -20px -60px;
+}
+
+.lock {
+  position: absolute;
+  top: 26%;
+  left: 18%;
+}
+
+.lock_img {
+  width: 38px;
+}
+
+.lock_count {
+  font-weight: 900;
+  font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
+  -webkit-text-stroke: 2px black;
+  color: yellow;
+  font-size: 52px;
+}
+
+.loader {
+  position: fixed;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+  top: 0;
+  left: 0;
+  height: 100%;
+  width: 100%;
+  background-color: white;
+  font-size: 150px;
+  z-index: 99;
+  transition: all linear 400ms;
+  cursor: pointer;
+}
+
+.loader .game_name {
+  background-image: url(./images/bg_6.jpg);
+  background-size: cover;
+  background-clip: text;
+  -webkit-background-clip: text;
+  color: transparent;
+  font-family: "adineue-bold";
+  font-weight: 800;
+}
+
+.title_content {
+  font-size: 24px;
+  font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
+}
+
+.loader.remove_loader {
+  top: -100%;
+}
+
+.loader_bg {
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  width: 100%;
+  height: 20vh;
+  background-image: url(./images/bush.png);
+  background-repeat: no-repeat;
+  background-position: 0px 40px;
+  background-size: 100% 100%;
+  background-attachment: fixed;
+}
+
+.tree_one {
+  position: absolute;
+  bottom: 82px;
+  z-index: 0;
+  left: -170px;
+}
+
+.tree_two {
+  position: absolute;
+  bottom: -50px;
+  z-index: 0;
+  right: -214px;
+  height: 84vh;
+}
+
+.branch {
+  position: absolute;
+  top: 27%;
+  z-index: 7;
+  height: 29vh;
+  right: -22px;
+}
+
+.rock {
+  position: absolute;
+  bottom: -40px;
+  width: 230px;
+  right: 65%;
+  z-index: 1;
+}
+
+.bush {
+  position: absolute;
+  bottom: 0;
+  left: -90px;
+  width: 300px;
+}
+
+.bush_two {
+  position: absolute;
+  bottom: 0;
+  left: 26%;
+  width: 300px;
+}
+
+.rope {
+  top: -113px;
+  position: absolute;
+  left: -57px;
+  width: 300px;
+}
+
+.bird_one {
+  z-index: 7;
+  height: 140px;
+  position: absolute;
+  top: 206px;
+  right: 122px;
+  transform: scaleX(-1);
+}
+.animation_asset {
+  transition: all 300ms linear 200ms;
+}
+
+.from_left .animation_asset {
+  transform: translateX(-100%);
+}
+
+.from_right .animation_asset {
+  transform: translateX(100%);
+}
+
+.from_down .animation_asset {
+  transform: translateY(100%);
+}
+
+.parrot {
+  width: 125px;
+  position: absolute;
+  left: 0%;
+  top: 25%;
+  z-index: 9;
+}
+
+.butterfly {
+  position: absolute;
+  z-index: 9;
+  bottom: 30px;
+  left: 2%;
+  width: 125px;
+  transform: rotate(330deg);
+}
+
+.restart_game {
+  position: absolute;
+  bottom: 0;
+  height: 40vh;
+  width: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  transition: all linear 300ms;
+  transform: translateY(50vh);
+  transition-delay: 500ms;
+  z-index: 9;
+}
+
+.restart_button {
+  height: 40px;
+  padding: 10px 30px;
+  border-radius: 22px;
+  border: 2px solid black;
+  background: yellow;
+  font-family: "adineue-bold";
+  z-index: 1;
+}
+
+.victory {
+  position: absolute;
+  width: 500px;
+  height: 500px;
+  z-index: 0;
+}

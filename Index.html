@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Cage Game</title>
+    <link rel="stylesheet" href="./Index.css" />
+    <script src="./lottie.min.js"></script>
+  </head>
+  <body>
+    <div class="parent_container">
+      <div class="loader">
+        <h1 class="game_name">Harrow</h1>
+        <span class="title_content">Click or Enter to start the game</span>
+      </div>
+      <div class="cage cage_remove">
+        <section class="cage_outer">
+          <div class="key">
+            <div id="cage_key"></div>
+          </div>
+          <div class="bird">
+            <span class="bird_side" id="bird-lottie"></span>
+          </div>
+        </section>
+      </div>
+
+      <!-- lock details -->
+      <div class="lock_container">
+        <div class="lock">
+          <img src="./images/lock.png" class="lock_img" />
+          <span class="lock_count"></span>
+        </div>
+      </div>
+    </div>
+
+    <!-- Background -->
+    <div class="background_assets_left from_left">
+      <div class="parrot animation_asset" id="parrot"></div>
+      <div class="butterfly animation_asset" id="butterfly"></div>
+      <img src="./images/tree.png" alt="" class="animation_asset tree_one" />
+      <img src="./images/bush.png" alt="" class="animation_asset bush" />
+      <img src="./images/rope.png" alt="" class="animation_asset rope" />
+    </div>
+    <div class="background_assets_down from_down">
+      <img src="./images/rock.png" alt="" class="animation_asset rock" />
+      <img src="./images/bush_2.png" alt="" class="animation_asset bush_two" />
+    </div>
+    <div class="background_assets_right from_right">
+      <img src="./images/tree2.png" alt="" class="animation_asset tree_two" />
+      <div class="bird_one" id="bird_one"></div>
+      <img src="./images/branch.png" alt="" class="animation_asset branch" />
+    </div>
+
+    <!-- Victory and Restart -->
+    <div class="restart_game">
+      <div class="victory" id="victory"></div>
+      <button class="restart_button">Restart</button>
+    </div>
+    <script src="./Index.js"></script>
+  </body>
+</html>
